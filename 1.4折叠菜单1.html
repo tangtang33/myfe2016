@@ -35,7 +35,7 @@
 <body>
     <ul id="menu">
         <li class="main-menu">
-            <h3 onselectstart="return false">管理区</h3>
+            <h3>管理区</h3>
             <!-- onselectstart="return false"表示点击多次不会被选定-->
             <ul class="sub-menu">
                 <li><a href="#">001</a></li>
@@ -44,7 +44,7 @@
             </ul>
         </li>
         <li class="main-menu">
-            <h3 onselectstart="return false">交流区</h3>
+            <h3>交流区</h3>
             <ul class="sub-menu">
                 <li><a href="#">001</a></li>
                 <li><a href="#">002</a></li>
@@ -57,7 +57,7 @@
         var oMenu = document.getElementById("menu");
         var aH3 = oMenu.getElementsByTagName("h3");
         var aSubmenu = oMenu.getElementsByTagName("ul");
-        for(var i=0; i<=aH3.length; i++){
+        for(var i=0; i<aH3.length; i++){
             aH3[i].index = i;      //给每个服aH3自定义一个index，用于保存当时i的值
             aH3[i].bFlag = false;   //标准位，false代表当前菜单是合上的，true代表当前菜单是打开的
             aH3[i].onclick = function(){
@@ -67,6 +67,9 @@
                     aSubmenu[this.index].style.display ="block"
                 }
                 this.bFlag = !this.bFlag;
+            };
+            aH3[i].onselectstart = function(){
+                return false;
             };
         }
     </script>
