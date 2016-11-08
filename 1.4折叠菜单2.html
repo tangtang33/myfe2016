@@ -54,6 +54,14 @@
     <script>
         var oMenu = document.getElementById("menu");
         var aLi = oMenu.getElementsByTagName("li");
+
+        var aSubMenu = oMenu.getElementsByTagName("ul");
+        for(var j=0; j<aSubMenu.length; j++){
+            aSubMenu[j].onclick = function(e){
+                e.stopPropagation();   //阻止事件冒泡，在标准浏览器下支持
+            };
+        }
+
         for(var i=0; i<aLi.length; i++) {
             if (aLi[i].className == "main-menu") {
                 aLi[i].bFlag = false;
@@ -68,6 +76,7 @@
 
             }
         }
+
     </script>
 </body>
 </html>
